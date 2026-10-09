@@ -1,0 +1,62 @@
+:root {
+  --bg: #f6f7f9;
+  --card: #ffffff;
+  --text: #1d2430;
+  --muted: #5b6676;
+  --accent: #2456c7;
+  --ok-bg: #e4f5ea;  --ok-text: #14602f;
+  --err-bg: #fde8e8; --err-text: #9b1c1c;
+  --info-bg: #e8eefc; --info-text: #1c3d8f;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+main { max-width: 640px; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+h1 { margin-bottom: 0.25rem; }
+.intro { color: var(--muted); margin-top: 0; }
+h2 { margin-top: 2rem; }
+
+button {
+  font: inherit;
+  padding: 0.5rem 1rem;
+  border: 0;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+}
+button:hover:not(:disabled) { filter: brightness(1.1); }
+button:disabled { opacity: 0.55; cursor: not-allowed; }
+button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 3px solid #f2b600; outline-offset: 2px;
+}
+button.delete-btn { background: #b42318; padding: 0.3rem 0.7rem; font-size: 0.9rem; }
+
+#status { min-height: 1.5rem; padding: 0.5rem 0.75rem; border-radius: 6px; margin: 1rem 0; }
+#status:empty { padding: 0; }
+#status.loading { background: var(--info-bg); color: var(--info-text); }
+#status.success { background: var(--ok-bg);   color: var(--ok-text);  border-left: 4px solid var(--ok-text); }
+#status.error   { background: var(--err-bg);  color: var(--err-text); border-left: 4px solid var(--err-text); }
+
+#notes-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem; }
+#notes-list li {
+  background: var(--card);
+  border: 1px solid #dde1e8;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+}
+#notes-list li.empty { color: var(--muted); font-style: italic; text-align: center; }
+.note-title { margin: 0 0 0.25rem; font-size: 1.05rem; }
+.note-body { margin: 0 0 0.6rem; color: var(--muted); white-space: pre-wrap; }
+
+form { display: grid; gap: 0.4rem; background: var(--card); padding: 1rem; border-radius: 8px; border: 1px solid #dde1e8; }
+label { font-weight: 600; margin-top: 0.4rem; }
+input, textarea {
+  font: inherit; padding: 0.5rem; border: 1px solid #b9c0cc; border-radius: 6px; width: 100%;
+}
+form button { justify-self: start; margin-top: 0.6rem; }
